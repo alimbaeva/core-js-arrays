@@ -19,9 +19,12 @@
  *    getIntervalArray(-2, 2)  => [ -2, -1, 0, 1, 2 ]
  *    getIntervalArray(0, 100) => [ 0, 1, 2, ..., 100 ]
  *    getIntervalArray(3, 3) => [ 3 ]
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
  */
-function getIntervalArray(/* start, end */) {
-  throw new Error('Not implemented');
+
+function getIntervalArray(start, end) {
+  const arrLen = end - start;
+  return Array.from({ length: arrLen + 1 }, (v, index) => start + index);
 }
 
 /**
