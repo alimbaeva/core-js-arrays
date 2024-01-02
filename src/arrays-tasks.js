@@ -94,9 +94,17 @@ function findElement(arr, value) {
  *    findAllOccurrences([ 'a','b','c','c' ], 'c') => 2
  *    findAllOccurrences([ null, undefined, null ], null) => 2
  *    findAllOccurrences([ true, 0, 1, 'true' ], true) => 1
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
  */
-function findAllOccurrences(/* arr, item */) {
-  throw new Error('Not implemented');
+function findAllOccurrences(arr, item) {
+  const count = arr.reduce((acc, el) => {
+    if (el === item) {
+      return acc + 1;
+    }
+    return acc;
+  }, 0);
+
+  return count;
 }
 
 /**
