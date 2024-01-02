@@ -172,9 +172,10 @@ function getAverage(arr) {
  * @example
  *    isSameLength(['orange', 'banana', 'cherry']) => true
  *    isSameLength(['cat', 'dog', 'elephant']) => false
+ * https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/every
  */
-function isSameLength(/* arr */) {
-  throw new Error('Not implemented');
+function isSameLength(arr) {
+  return arr.every((value, index, array) => value.length === array[0].length);
 }
 
 /**
