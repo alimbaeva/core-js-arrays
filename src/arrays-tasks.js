@@ -369,9 +369,14 @@ function calculateBalance(arr) {
  *    createChunks([1, 2, 3, 4, 5, 6, 7], 3) => [[1, 2, 3], [4, 5, 6], [7]]
  *    createChunks(['a', 'b', 'c', 'd', 'e'], 2) => [['a', 'b'], ['c', 'd'], ['e']]
  *    createChunks([10, 20, 30, 40, 50], 1) => [[10], [20], [30], [40], [50]]
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
+ * Array.from({ length: Math.ceil(arr.length / chunkSize) } => Array.from({ length: Math.ceil(7/3)}) => Array.from({ length: 3}) => массив длиной 3
+ * arr.slice(index * chunkSize, (index + 1) * chunkSize) => arr.slice(1*3, (1+1)*3) => arr.slice(3, 6) => [ 4, 5, 6,]
  */
-function createChunks(/* arr, chunkSize */) {
-  throw new Error('Not implemented');
+function createChunks(arr, chunkSize) {
+  return Array.from({ length: Math.ceil(arr.length / chunkSize) }, (_, index) =>
+    arr.slice(index * chunkSize, (index + 1) * chunkSize)
+  );
 }
 
 /**
