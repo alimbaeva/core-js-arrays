@@ -628,9 +628,6 @@ function shiftArray(arr, n) {
  *   sortDigitNamesByNumericOrder([ 'nine','eight','nine','eight' ]) => [ 'eight','eight','nine','nine']
  *   sortDigitNamesByNumericOrder([ 'one','one','one','zero' ]) => [ 'zero','one','one','one' ]
  */
-// function sortDigitNamesByNumericOrder(/* arr */) {
-//   throw new Error('Not implemented');
-// }
 function sortDigitNamesByNumericOrder(arr) {
   if (arr.length <= 1) return arr;
 
@@ -661,11 +658,13 @@ function sortDigitNamesByNumericOrder(arr) {
     }
     return el;
   });
+
   coppyArr = [
     ...sortDigitNamesByNumericOrder(left),
     start,
     ...sortDigitNamesByNumericOrder(right),
   ];
+
   return coppyArr;
 }
 
