@@ -628,27 +628,46 @@ function shiftArray(arr, n) {
  *   sortDigitNamesByNumericOrder([ 'nine','eight','nine','eight' ]) => [ 'eight','eight','nine','nine']
  *   sortDigitNamesByNumericOrder([ 'one','one','one','zero' ]) => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(/* arr */) {
-  throw new Error('Not implemented');
-}
-// function sortDigitNamesByNumericOrder(arr) {
-//   const numberObject = {
-//     zero: 0,
-//     one: 1,
-//     two: 2,
-//     three: 3,
-//     four: 4,
-//     five: 5,
-//     six: 6,
-//     seven: 7,
-//     eight: 8,
-//     nine: 9,
-//   };
-
-//   arr.reduce((cur, el, ind) => {
-//     if (cur[numberObject[el]])
-//   }, []);
+// function sortDigitNamesByNumericOrder(/* arr */) {
+//   throw new Error('Not implemented');
 // }
+function sortDigitNamesByNumericOrder(arr) {
+  if (arr.length <= 1) return arr;
+
+  const numberObject = [
+    'zero',
+    'one',
+    'two',
+    'three',
+    'four',
+    'five',
+    'six',
+    'seven',
+    'eight',
+    'nine',
+  ];
+
+  let coppyArr = [];
+  const start = arr[0];
+  arr.splice(0, 1);
+  const left = [];
+  const right = [];
+
+  arr.map((el) => {
+    if (numberObject.indexOf(el) <= numberObject.indexOf(start)) {
+      left.push(el);
+    } else {
+      right.push(el);
+    }
+    return el;
+  });
+  coppyArr = [
+    ...sortDigitNamesByNumericOrder(left),
+    start,
+    ...sortDigitNamesByNumericOrder(right),
+  ];
+  return coppyArr;
+}
 
 /**
  * Swaps the head and tail of the specified array:
